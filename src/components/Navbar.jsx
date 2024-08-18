@@ -14,7 +14,7 @@ import {
 import { FaVk, FaTelegramPlane, FaHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart, MdMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
-import { logo, logotext } from '../assets';
+import { logo, logotext, vk } from '../assets';
 import { IoSearchOutline } from "react-icons/io5";
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -60,7 +60,7 @@ const Navbar = () => {
                         </Flex>
 
                         <Flex align="center" gap={2}>
-                            <Image h="42px" src={'vk'} alt="vk" />
+                            <Image h="42px" src={vk} alt="vk" />
                             <Image w="42px" h="42px" src={'tg'} alt="tg" />
                             <Image w="42px" h="42px" src={'sup'} alt="sup" />
                         </Flex>
