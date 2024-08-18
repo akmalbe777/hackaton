@@ -4,6 +4,7 @@ import { AiOutlineMinus } from "react-icons/ai";
 import SidebarTexts from './SidebarTexts';
 import { AiOutlineAppstore } from "react-icons/ai";
 import { SlArrowUp } from "react-icons/sl";
+import { top } from '../../assets';
 
 export default function Sidebar() {
     const [value, setValue] = React.useState([1250, 12500]);
@@ -219,6 +220,7 @@ export default function Sidebar() {
                     </AccordionItem>
                 </Accordion>
             </Box>
+
             <Box className='sidebarBASE' display='none'>
                 <Accordion allowToggle >
                     <AccordionItem>

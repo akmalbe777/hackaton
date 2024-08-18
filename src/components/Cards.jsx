@@ -1,60 +1,101 @@
-import React from 'react';
-import { Box, Image, Text, Heading } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { Box, Image, Text, Button, Heading, Flex, Spinner } from '@chakra-ui/react';
 import { CiHeart } from "react-icons/ci";
-import { card } from '../assets';
+import { FaHeart } from "react-icons/fa";
+import axios from 'axios';
 
+const Card = ({ isOwn }) => {
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-const Card = () => (
-  <Box borderWidth="1px" mb="4">
-    <Box position="relative">
-      <Box position="absolute" top="8px" left="8px">
-        <Text fontSize="sm" color='white'>
-          Артикул: 515314
-        </Text>
-        <Text fontSize="lg" color='white' fontWeight="600">
-          Сковороды
-        </Text>
-      </Box>
-      <Image src={card} alt="Product Image" width='100%' />
-      <Box position="absolute" top="8px" right="8px">
-        <CiHeart color="white" size='30' />
-      </Box>
-    </Box>
+  useEffect(() => {
+    axios.get("https://full-api.onrender.com/api/product/get").then((res) => {
+      setLoading(false);
+      setData(res.data.data);
+    });
+  }, []);
 
-    <Box p="4">
-      <Heading size="md" mt="2" fontWeight="bold">
-        Сковорода-сотейник чугунная
-      </Heading>
-      <Text fontSize="md" color="gray.600">
-        ОПТИМА-BLACK, 240 x 60 мм
-      </Text>
-
-      <Box mt="4" display="flex" alignItems="center">
-        <Box bg='#E24C55' color='white' mr="5" px="2">
-          -30%
-        </Box>
-        <Heading size="md" color="red.300" mr='5' as="s">
-          2 250
-        </Heading>
-        <Heading size="md" color="black">
-          2 250
-        </Heading>
-      </Box>
-    </Box>
-  </Box>
-);
-
-export default function Cards() {
   return (
-    <div className="cards-container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </div>
+    <Flex justify="center" wrap="wrap">
+      {loading ? (
+        <Spinner size="xl" />
+      ) : (
+        <Flex justify="start" wrap="wrap" gap="7" align="center">
+          {data.filter(e => isOwn ? e.userId.username === localStorage.getItem("username") : true)
+            .map((item, i) => (
+              <Box
+                key={i}
+                w="229px"
+                h="240px"
+                bg="white"
+                borderRadius="8px"
+                position="relative"
+              >
+                <Flex
+                  px="0"
+                  pt="3"
+                  justify="space-between"
+                  align="center"
+                  position="absolute"
+                  zIndex="50"
+                  w="100%"
+                >
+                  <Box pl="10px" fontSize="10px" color="white" fontWeight="500">
+                    <Text isTruncated w="100px">{item.name}</Text>
+                  </Box>
+                  <Box pr="5">
+                    <Button
+                      onClick={handleClick}
+                      variant="unstyled"
+                      _hover={{ bg: 'transparent' }}
+                    >
+                      {show ? (
+                        <FaHeart color="red" size="30px" />
+                      ) : (
+                        <CiHeart color="white" size="30px" />
+                      )}
+                    </Button>
+                  </Box>
+                </Flex>
+
+                <Flex justify="center" position="relative" zIndex="10">
+                  <Image src={item.url} alt="img" />
+                </Flex>
+
+                <Box bg="white">
+                  <Flex flexDirection="column" justify="center" w="90%" m="auto">
+                    <Heading textAlign="center" fontSize="14px" fontWeight="500">
+                      {item.info}
+                    </Heading>
+                    <Flex justify="space-between" align="center">
+                      <Box
+                        w="60px"
+                        h="20px"
+                        bg="#E24C55"
+                        fontSize="13px"
+                        fontWeight="600"
+                        color="white"
+                        textAlign="center"
+                      >
+                        -{item.seil}%
+                      </Box>
+                      <Text fontSize="16px" fontWeight="600" textDecoration="line-through" textDecorationColor="red">
+                        {item.oldPrice}
+                      </Text>
+                      <Text fontSize="18px" fontWeight="700">
+                        {item.newPrice}
+                      </Text>
+                    </Flex>
+                  </Flex>
+                </Box>
+              </Box>
+            ))}
+        </Flex>
+      )}
+    </Flex>
   );
-}
+};
+
+export default Card;
