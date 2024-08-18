@@ -1,6 +1,6 @@
 import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Button, Image, Input, RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack, Text } from '@chakra-ui/react'
 import React from 'react'
-import { top } from '../assets'
+import { top } from '../../assets'
 import { AiOutlineMinus } from "react-icons/ai";
 
 export default function Sidebar() {

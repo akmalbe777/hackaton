@@ -7,7 +7,7 @@ import {
     AccordionIcon,
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import Sidebar from '../Sidebar'
+import Sidebar from '../Sidebar/Sidebar'
 import { SlArrowUp } from "react-icons/sl";
 
 export default function Main() {
