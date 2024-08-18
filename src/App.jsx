@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react"
 import Main from "./components/Main/Main"
 import Navbar from "./components/Navbar"
+import { Footer } from "./components/footer"
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <Box>
       <Navbar />
         <Main />
+        <Footer />
     </Box>
   )
 }
