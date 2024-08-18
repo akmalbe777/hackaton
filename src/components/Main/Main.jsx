@@ -57,13 +57,10 @@ export default function Main() {
                     </Select>
                 </Flex>
             </Box>
-            <Box display='flex' alignItems='start' gap='40px'>
-               <Box display={{xl:'block', md:'none', base:'none'}}>
-               <Sidebar />
-               </Box>
-               <Box>
-                
-               </Box>
+            <Box display='flex' alignItems='start' gap='40px' className='sidebar'>
+                <Sidebar />
+                <Box>
+                </Box>
                 <Cards />
             </Box>
 

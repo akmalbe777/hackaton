@@ -3,6 +3,7 @@ import { Box, Image, Text, Heading } from '@chakra-ui/react';
 import { CiHeart } from "react-icons/ci";
 import { card } from '../assets';
 
+
 const Card = () => (
   <Box borderWidth="1px" mb="4">
     <Box position="relative">
@@ -45,11 +46,7 @@ const Card = () => (
 
 export default function Cards() {
   return (
-    <Box
-      display="grid"
-      gridTemplateColumns={{ base: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr', xl: '1fr 1fr 1fr 1fr' }}
-      gap="4"
-    >
+    <div className="cards-container">
       <Card />
       <Card />
       <Card />
@@ -58,6 +55,6 @@ export default function Cards() {
       <Card />
       <Card />
       <Card />
-    </Box>
+    </div>
   );
 }

@@ -1,16 +1,17 @@
-import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Button, Checkbox, Grid, Image, Input, Radio, RadioGroup, RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack, Stack, Text, useDisclosure } from '@chakra-ui/react'
+import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Button, Checkbox, Grid, GridItem, Image, Input, Radio, RadioGroup, RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack, Stack, Text, useDisclosure } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { top } from '../../assets'
 import { AiOutlineMinus } from "react-icons/ai";
 import SidebarTexts from './SidebarTexts';
+import { AiOutlineAppstore } from "react-icons/ai";
+import { SlArrowUp } from "react-icons/sl";
 
 export default function Sidebar() {
     const [value, setValue] = React.useState([1250, 12500]);
     const { isOpen, onToggle } = useDisclosure();
     const [value1, setValue1] = useState('all');
     return (
-        <Box>
-            <Box background='white' width='250px'>
+        <Box >
+            <Box background='white' width='250px' className='sidebarMD' display='block'>
                 <Box pl='20px' display='flex' flexDir='column' gap='8px'>
                     <SidebarTexts text={'Все товары'} />
                     <SidebarTexts text={'Афганские скороварки'} />
@@ -218,7 +219,40 @@ export default function Sidebar() {
                     </AccordionItem>
                 </Accordion>
             </Box>
-
+            <Box className='sidebarBASE' display='none'>
+                <Accordion allowToggle >
+                    <AccordionItem>
+                        <AccordionButton bg='#E24C55' _hover={'none'} color='white'>
+                            <Box flex="1" textAlign="left" display='flex' alignItems='center' justifyContent='space-between' width='500px' className='acc'>
+                                <Box display='flex' alignItems='center'>
+                                    <AiOutlineAppstore style={{ marginRight: '8px' }} size='30' />
+                                    Чайники и френч-прессы
+                                </Box>
+                                <SlArrowUp size='25px' />
+                            </Box>
+                        </AccordionButton>
+                        <AccordionPanel>
+                            <Grid templateColumns="repeat(3, 1fr)" gap={4} className='grid'>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Все товары</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Афганские скороварки</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Казаны и котлы</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Учаги</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Кастрюли</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Мантоварки</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Сковороды</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Термосы</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Чайники и френч-прессы</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Сервировочная посуда</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Столовые приборы</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Бытовая техника</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Бытовая химия</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'>Товары для дома и сада</GridItem>
+                                <GridItem w="150px" h='60px' _active={{ bg: '#E24C55', color: 'white' }} cursor='pointer' userSelect='none' display='flex' alignItems='center' justifyContent='center' textAlign='center' fontWeight='700' border='1px solid'></GridItem>
+                            </Grid>
+                        </AccordionPanel>
+                    </AccordionItem>
+                </Accordion>
+            </Box>
         </Box>
 
     )
