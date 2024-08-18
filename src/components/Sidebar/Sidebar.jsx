@@ -175,7 +175,7 @@ export default function Sidebar() {
                 </Accordion>
 
                 <Accordion allowMultiple defaultIndex={[0]}>
-                    <AccordionItem className='accordion'>
+                    <AccordionItem>
                         <h2>
                             <AccordionButton>
                                 <Box as="span" flex="1" textAlign="left" fontSize='22px' fontWeight='500'>
@@ -197,7 +197,7 @@ export default function Sidebar() {
                 </Accordion>
 
                 <Accordion allowMultiple defaultIndex={[0]}>
-                    <AccordionItem className='accordion'>
+                    <AccordionItem>
                         <h2>
                             <AccordionButton>
                                 <Box as="span" flex="1" textAlign="left" fontSize='22px' fontWeight='500' >
@@ -218,6 +218,21 @@ export default function Sidebar() {
                     </AccordionItem>
                 </Accordion>
             </Box>
+
+            <Grid templateColumns="repeat(3, 1fr)" gap={6} p={4}>
+            <Box bg="red.200" p={4}>
+                <Text fontSize="xl" fontWeight="bold">
+                    Чайники и френч-прессы
+                </Text>
+            </Box>
+            <Box bg="blue.200" p={4}>
+                <Text>Все товары</Text>
+            </Box>
+            <Box bg="green.200" p={4}>
+                <Text>Афганские скороварки</Text>
+            </Box>
+            {/* Add remaining grid items */}
+        </Grid>
         </Box>
 
     )

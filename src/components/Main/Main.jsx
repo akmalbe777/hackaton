@@ -26,7 +26,7 @@ export default function Main() {
     const [value1, setValue1] = useState('all');
 
     return (
-        <Box px='120px'>
+        <Box px='100px'>
             <Box width="100%" padding="10px" backgroundColor="white" mb='40px'>
                 <Flex justifyContent="space-between" alignItems="center">
                     {/* Number of products found */}
@@ -57,10 +57,15 @@ export default function Main() {
                     </Select>
                 </Flex>
             </Box>
-         <Box display='flex' alignItems='start' gap='40px'>
-         <Sidebar />
-         <Cards />
-         </Box>
+            <Box display='flex' alignItems='start' gap='40px'>
+               <Box display={{xl:'block', md:'none', base:'none'}}>
+               <Sidebar />
+               </Box>
+               <Box>
+                
+               </Box>
+                <Cards />
+            </Box>
 
         </Box>
     )
