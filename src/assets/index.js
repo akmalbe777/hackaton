@@ -1,2 +1,6 @@
 import top from './top.png'
-export{top}
+import card from './card.png'
+import logo from './logo.png'
+import logotext from './logotext.png'
+import vk from './vk.png'
+export{top, card, logo, logotext, vk}

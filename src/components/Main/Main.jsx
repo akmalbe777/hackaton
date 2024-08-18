@@ -9,6 +9,7 @@ import {
 import React, { useState } from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import { SlArrowUp } from "react-icons/sl";
+import Cards from '../Cards';
 
 export default function Main() {
     const [value, setValue] = useState('1')
@@ -22,11 +23,11 @@ export default function Main() {
         setIsOpen(false);
     };
     const { isOpen: isOpen1, onToggle: onOpen1 } = useDisclosure();
-  const [value1, setValue1] = useState('all');
+    const [value1, setValue1] = useState('all');
 
     return (
         <Box px='120px'>
-            <Box width="100%" padding="10px" backgroundColor="white">
+            <Box width="100%" padding="10px" backgroundColor="white" mb='40px'>
                 <Flex justifyContent="space-between" alignItems="center">
                     {/* Number of products found */}
                     <Text>Найдено товаров: 245</Text>
@@ -56,21 +57,11 @@ export default function Main() {
                     </Select>
                 </Flex>
             </Box>
-            <Sidebar />
+         <Box display='flex' alignItems='start' gap='40px'>
+         <Sidebar />
+         <Cards />
+         </Box>
 
-        {/* <RadioGroup onChange={setValue1} value={value1}>
-          <Stack direction="column">
-            <Radio value="all">Все казаны</Radio>
-            <Checkbox value="4.5">4,5 литра</Checkbox>
-            <Checkbox value="5">5 литров</Checkbox>
-            <Checkbox value="6">6 литров</Checkbox>
-            <Checkbox value="7">7 литров</Checkbox>
-            <Checkbox value="8">8 литров</Checkbox>
-            <Checkbox value="10">10 литров</Checkbox>
-            <Checkbox value="12">12 литров</Checkbox>
-          </Stack>
-        </RadioGroup> */}
-            
         </Box>
     )
 }

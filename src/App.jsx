@@ -1,10 +1,12 @@
 import { Box } from "@chakra-ui/react"
 import Main from "./components/Main/Main"
+import Navbar from "./components/Navbar"
 
 function App() {
 
   return (
     <Box>
+      <Navbar />
         <Main />
     </Box>
   )
