@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react"
-import Main from "./components/Main"
+import Main from "./components/Main/Main"
 
 function App() {
 
