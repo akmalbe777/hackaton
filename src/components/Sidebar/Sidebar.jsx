@@ -1,4 +1,4 @@
-import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Button, Checkbox, Image, Input, Radio, RadioGroup, RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack, Stack, Text, useDisclosure } from '@chakra-ui/react'
+import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Button, Checkbox, Grid, Image, Input, Radio, RadioGroup, RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack, Stack, Text, useDisclosure } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { top } from '../../assets'
 import { AiOutlineMinus } from "react-icons/ai";
@@ -219,20 +219,6 @@ export default function Sidebar() {
                 </Accordion>
             </Box>
 
-            <Grid templateColumns="repeat(3, 1fr)" gap={6} p={4}>
-            <Box bg="red.200" p={4}>
-                <Text fontSize="xl" fontWeight="bold">
-                    Чайники и френч-прессы
-                </Text>
-            </Box>
-            <Box bg="blue.200" p={4}>
-                <Text>Все товары</Text>
-            </Box>
-            <Box bg="green.200" p={4}>
-                <Text>Афганские скороварки</Text>
-            </Box>
-            {/* Add remaining grid items */}
-        </Grid>
         </Box>
 
     )
